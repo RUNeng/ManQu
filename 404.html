@@ -3,20 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>404 页面未找到</title>
+    <title>404 页面未找到 · 公益寻人</title>
     <link rel="icon" href="https://img.baidu.re/i/2026/02/s8gshj.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #ffffff 0%, #e6f2ff 50%, #cce5ff 100%); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; }
         .container { max-width: 100%; width: 100%; }
-        .error-code { font-size: 5rem; font-weight: bold; color: #0066cc; margin-bottom: 10px; }
+        .error-code { font-size: 5rem; font-weight: bold; color: #0066cc; margin-bottom: 10px; line-height: 1.2; }
         .error-message { font-size: 1.5rem; color: #333; margin-bottom: 30px; }
-        .official-link { display: inline-block; padding: 10px 20px; background-color: #0066cc; color: white; text-decoration: none; border-radius: 5px; font-size: 1rem; transition: background-color 0.3s; }
+        .official-link { display: inline-block; padding: 10px 20px; background-color: #0066cc; color: white; text-decoration: none; border-radius: 5px; font-size: 1rem; transition: background-color 0.3s; margin-bottom: 15px; }
         .official-link:hover { background-color: #004d99; }
-        .footer { margin-top: 40px; font-size: 0.8rem; color: #666; }
+        .footer { margin-top: 30px; font-size: 0.8rem; color: #666; }
         .footer a { color: #0066cc; text-decoration: none; }
-        @media (max-width: 480px) { .error-code { font-size: 3rem; } .error-message { font-size: 1.2rem; } .official-link { padding: 8px 16px; font-size: 0.9rem; } }
-        @media (max-width: 320px) { .error-code { font-size: 2rem; } .error-message { font-size: 1rem; margin-bottom: 20px; } .footer { font-size: 0.7rem; margin-top: 20px; } }
+        .missing-card { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(2px); border-radius: 16px; padding: 18px 16px; margin: 20px auto 10px; max-width: 520px; box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15); text-align: left; border: 1px solid rgba(0, 102, 204, 0.25); transition: all 0.2s ease; }
+        .missing-header { font-size: 1.25rem; font-weight: 600; color: #004d99; margin-bottom: 14px; text-align: center; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .missing-header span { background: #ff6b6b; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 30px; font-weight: normal; }
+        .missing-content { display: flex; flex-wrap: wrap; gap: 16px; }
+        .missing-photo { flex: 0 0 85px; }
+        .missing-photo img { width: 85px; height: 85px; object-fit: cover; border-radius: 12px; border: 2px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: #f0f0f0; }
+        .missing-details { flex: 1; min-width: 200px; font-size: 0.95rem; color: #1e2a3a; line-height: 1.5; }
+        .missing-details p { margin: 6px 0; display: flex; align-items: flex-start; gap: 6px; }
+        .missing-details .name-tag { font-size: 1.2rem; font-weight: 700; color: #003366; margin-right: 6px; }
+        .missing-details .gender-age { background: #e6f0ff; padding: 2px 10px; border-radius: 30px; font-size: 0.8rem; color: #0066cc; display: inline-block; white-space: nowrap; }
+        .missing-details .label { font-weight: 600; color: #2c3e50; min-width: 70px; font-size: 0.9rem; display: flex; align-items: center; gap: 4px; }
+        .missing-details .value { color: #333; word-break: break-word; flex: 1; }
+        .missing-details .contact { background: #fff1f0; padding: 4px 10px; border-radius: 40px; color: #b52b2b; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; border: 1px solid #ffcdd2; margin-top: 6px; }
+        .missing-feature { background-color: #f9f9ff; border-left: 3px solid #0066cc; padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; color: #2c3e50; margin-top: 8px; word-break: break-word; }
+        .missing-footer { margin-top: 16px; text-align: right; border-top: 1px dashed #b3d1ff; padding-top: 12px; }
+        .missing-footer a { color: #0066cc; text-decoration: none; font-size: 0.95rem; font-weight: 500; background: #e6f0ff; padding: 5px 15px; border-radius: 30px; transition: background 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+        .missing-footer a:hover { background: #cce4ff; text-decoration: none; }
+        .badge-days { background: #ffecb3; color: #8a6d2b; font-size: 0.75rem; padding: 2px 8px; border-radius: 30px; margin-left: 8px; font-weight: normal; white-space: nowrap; }
+        .age-info { display: flex; gap: 15px; flex-wrap: wrap; margin: 5px 0; }
+        .age-item { background: #eef5ff; border-radius: 20px; padding: 2px 10px; font-size: 0.8rem; color: #0066cc; display: inline-flex; align-items: center; gap: 4px; }
+        @media (max-width: 480px) { .error-code { font-size: 3rem; } .error-message { font-size: 1.2rem; } .official-link { padding: 8px 16px; font-size: 0.9rem; } .missing-card { padding: 15px; } .missing-content { gap: 12px; } .missing-photo { flex: 0 0 70px; } .missing-photo img { width: 70px; height: 70px; } .missing-details { font-size: 0.85rem; } .label { min-width: 65px; } }
+        @media (max-width: 360px) { .missing-content { flex-direction: column; align-items: center; text-align: center; } .missing-details p { justify-content: center; } .missing-footer { text-align: center; } .gender-age { white-space: normal; } }
+        .loading-card { background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(2px); border-radius: 16px; padding: 28px 20px; margin: 20px auto 10px; max-width: 520px; box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15); border: 1px solid rgba(0, 102, 204, 0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+        .loading-spinner { width: 48px; height: 48px; border: 4px solid #e6f0ff; border-top: 4px solid #0066cc; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { color: #0066cc; font-size: 1.1rem; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+        .missing-header i { color: #ff6b6b; font-size: 1.2rem; }
+        .missing-header .fa-clock { font-size: 0.9rem; margin-left: 2px; }
+        .missing-details .contact i { color: #b52b2b; font-size: 0.9rem; }
+        .missing-footer a i { font-size: 0.8rem; margin-left: 4px; }
     </style>
 </head>
 <body>
@@ -24,9 +53,97 @@
         <div class="error-code">404</div>
         <div class="error-message">页面未找到</div>
         <a href="http://text.kt-network.cn/youman" class="official-link">前往游漫官网</a>
+        <div id="missing-child" class="missing-card" style="display: none;"></div>
+        <div id="loading-indicator" class="loading-card" style="display: flex;"></div>
+        <div class="footer">
+            &copy;2021-2026 <a href="http://text.kt-network.cn/youman" target="_blank">游漫团队</a>
+        </div>
     </div>
-    <div class="footer">
-        &copy;2021-2026 <a href="http://text.kt-network.cn/youman" target="_blank">游漫团队</a>
-    </div>
+    <script>
+        (function() {
+            function escapeHtml(unsafe) {
+                if (unsafe === undefined || unsafe === null) return '';
+                return String(unsafe).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+            }
+            const container = document.getElementById('missing-child');
+            const loadingEl = document.getElementById('loading-indicator');
+            if (!container || !loadingEl) return;
+            loadingEl.innerHTML = '<div class="loading-spinner"></div><div class="loading-text"><i class="fas fa-heart" style="color: #ff6b6b;"></i> 正在加载公益寻人 <i class="fas fa-heart" style="color: #ff6b6b;"></i></div>';
+            fetch('https://api.lolimi.cn/API/baby/gohome?type=json', { method: 'GET', mode: 'cors', headers: { 'Accept': 'application/json' } })
+            .then(response => { if (!response.ok) throw new Error(`HTTP error ${response.status}`); return response.json(); })
+            .then(data => {
+                if (data.code === 200 && data.data && typeof data.data === 'object') {
+                    renderMissingChild(data.data);
+                } else { throw new Error('数据格式异常或code不为200'); }
+            })
+            .catch(error => { console.warn('公益寻人加载失败，不显示卡片：', error.message); loadingEl.style.display = 'none'; });
+            function renderMissingChild(item) {
+                const title = item.title || '姓名未知';
+                const name = item.name || title;
+                const sex = item.sex || '不明';
+                const height = item.height || '未知';
+                const bornDate = item.born_date || '未知';
+                const missingDate = item.missing_date || '未知日期';
+                const missingAge = item.missing_age !== undefined ? item.missing_age : '?';
+                const nowAge = item.now_age !== undefined ? item.now_age : '?';
+                const missingAddress = item.missing_address || '地址不详';
+                const feature = item.missing_feature || '暂无特征信息';
+                const contact = item.contact || '联系方式暂缺';
+                const missingDays = item.missing_days;
+                const url = item.url || '#';
+                const photoUrl = item.sm_photo || item.photo || '';
+                const hasPhoto = photoUrl && photoUrl.trim() !== '';
+                const safeName = escapeHtml(name);
+                const safeSex = escapeHtml(sex);
+                const safeHeight = escapeHtml(height);
+                const safeBornDate = escapeHtml(bornDate);
+                const safeMissingDate = escapeHtml(missingDate);
+                const safeMissingAddress = escapeHtml(missingAddress);
+                const safeFeature = escapeHtml(feature);
+                const safeContact = escapeHtml(contact);
+                const safeUrl = escapeHtml(url);
+                const missingAgeStr = missingAge === '?' ? '未知' : missingAge + '岁';
+                const nowAgeStr = nowAge === '?' ? '未知' : nowAge + '岁';
+                const daysBadge = (missingDays && typeof missingDays === 'number') ? `<span class="badge-days"><i class="far fa-clock" style="margin-right: 3px;"></i>失踪${missingDays}天</span>` : '';
+                const photoHtml = hasPhoto ? `<div class="missing-photo"><img src="${escapeHtml(photoUrl)}" alt="${safeName}" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%3E%3Crect%20width%3D%2280%22%20height%3D%2280%22%20fill%3D%22%23cccccc%22%2F%3E%3Ctext%20x%3D%2210%22%20y%3D%2245%22%20font-family%3D%22Arial%22%20font-size%3D%2210%22%20fill%3D%22%23333%22%3E%E5%9B%BE%E7%89%87%E6%9A%82%E6%97%A0%3C%2Ftext%3E%3C%2Fsvg%3E';"></div>` : '';
+                const genderIcon = safeSex === '男' ? 'mars' : (safeSex === '女' ? 'venus' : 'genderless');
+                const detailsHtml = `
+                    <div class="missing-details">
+                        <p style="align-items: center; flex-wrap: wrap;">
+                            <span class="name-tag">${safeName}</span>
+                            <span class="gender-age"><i class="fas fa-${genderIcon}" style="margin-right: 3px;"></i>${safeSex} / ${safeHeight}</span>
+                            ${daysBadge}
+                        </p>
+                        <p><span class="label"><i class="fas fa-calendar-alt" style="margin-right: 5px; color: #0066cc;"></i>出生日期</span><span class="value">${safeBornDate}</span></p>
+                        <p><span class="label"><i class="fas fa-calendar-day" style="margin-right: 5px; color: #0066cc;"></i>失踪日期</span><span class="value">${safeMissingDate}</span></p>
+                        <div class="age-info">
+                            <span class="age-item"><i class="fas fa-child"></i> 失踪时 ${missingAgeStr}</span>
+                            <span class="age-item"><i class="fas fa-user"></i> 现在 ${nowAgeStr}</span>
+                        </div>
+                        <p><span class="label"><i class="fas fa-map-marker-alt" style="margin-right: 5px; color: #0066cc;"></i>失踪地点</span><span class="value">${safeMissingAddress}</span></p>
+                        <div class="missing-feature"><i class="fas fa-info-circle" style="color:#0066cc; margin-right:6px;"></i>${safeFeature}</div>
+                        <p><span class="contact"><i class="fas fa-phone-alt"></i> ${safeContact}</span></p>
+                    </div>
+                `;
+                const cardInnerHtml = `
+                    <div class="missing-header">
+                        <i class="fas fa-heart" style="color: #ff6b6b;"></i> 公益寻人 · 让爱回家 
+                        <i class="fas fa-clock" style="color: #ff6b6b; font-size: 0.9rem;"></i>
+                        <span>紧急</span>
+                    </div>
+                    <div class="missing-content">
+                        ${photoHtml}
+                        ${detailsHtml}
+                    </div>
+                    <div class="missing-footer">
+                        <a href="${escapeHtml(url)}" target="_blank" rel="noopener nofollow">查看详细资料 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                container.innerHTML = cardInnerHtml;
+                container.style.display = 'block';
+                loadingEl.style.display = 'none';
+            }
+        })();
+    </script>
 </body>
 </html>
